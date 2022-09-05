@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <li v-for="(item, index) in items">
+        {{item.message}}==={{index}}
+    </li>
+</div>
+
+<!--1.导入Vue.js-->
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            items: [
+                {message: '1'},
+                {message: '2'},
+                {message: '3'},
+                {message: '4'},
+                {message: '5'}
+            ]
+        }
+    });
+</script>
+</body>
+</html>
