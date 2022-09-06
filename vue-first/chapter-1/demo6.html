@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <zujian></zujian>
+    <br>
+    <zujian2 v-for="item in items" v-bind:aaa="item"></zujian2>
+
+</div>
+
+<!--1.导入Vue.js-->
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+
+    // 定义一个vue组件
+    Vue.component("zujian", {
+        template: '<li>hello</li>>'
+    });
+
+    Vue.component("zujian2", {
+        props: ['aaa'],
+        template: '<li>{{aaa}}</li>>'
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            items: ["T", "C", "Java"]
+        }
+    });
+</script>
+</body>
+</html>

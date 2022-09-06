@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+    <!--v-cloak 解决闪烁问题-->
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="vue" v-cloak>
+      <div>{{info.like}}</div>
+      <div>{{info.xian}}</div>
+</div>
+
+<!--1.导入Vue.js-->
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  var vm = new Vue({
+    el: "#vue",
+    // data: 属性: vm
+    data(){
+        return{
+          // 请求的返回参数, 必须和json的字符串一样
+          info: {
+              like: null,
+              xian: null
+          }
+        }
+    },
+    mounted() { // 钩子函数   基于es6的新特性
+      axios.get('../data.json').then(response=>(console.log(response.data)));
+      axios.get('../data.json').then(response=>(this.info = (response.data)));
+    }
+  });
+</script>
+</body>
+</html>
